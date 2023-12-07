@@ -24,6 +24,8 @@ var walking = false
 var sliding = false
 var freelooking = false
 
+var Inventory = false
+
 # Head Bob vars
 const headbobspeed_default = 12.0
 const headbobspeed_crouch = 8.0
@@ -55,9 +57,10 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("Inventory"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
+		Inventory = true
+		print("Inventory Open")
 	if event is InputEventMouseMotion:
 		var MouseEvent = event.relative *MouseSensitivity
 		CameraLook(MouseEvent)
@@ -126,7 +129,7 @@ func _physics_process(delta):
 		
 		head.position.y = lerp(head.position.y,0.0,delta*lerp_speed)
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
 	#Handle headbob

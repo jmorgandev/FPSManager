@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dibhg7g2ualeo"]
 
 [ext_resource type="PackedScene" uid="uid://bx7tmsyyrswdd" path="res://Assets/Import/Models/chesthing.blend" id="1_0e53i"]
-[ext_resource type="Material" uid="uid://ciyndfmm12nfi" path="res://Assets/Texture/Wood.tres" id="2_bxyb3"]
+[ext_resource type="Material" uid="uid://blave34nl1jev" path="res://Assets/Texture/Wood.tres" id="2_bxyb3"]
 
 [node name="chesthing" instance=ExtResource("1_0e53i")]
 

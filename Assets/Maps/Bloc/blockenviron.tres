@@ -1,0 +1,7 @@
+[gd_resource type="Environment" format=3 uid="uid://4vdvntksyos3"]
+
+[resource]
+background_mode = 2
+ambient_light_source = 3
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
