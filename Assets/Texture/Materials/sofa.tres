@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://dr6i2g8yl3eph"]
+
+[ext_resource type="Texture2D" uid="uid://bsq76ccks804u" path="res://Assets/Texture/diffuse/FabricPlain.png" id="1_uiep5"]
+[ext_resource type="Texture2D" uid="uid://d1v7hraetu4xm" path="res://Assets/Texture/normals/FabricPlain_normal.png" id="2_7dtim"]
+[ext_resource type="Texture2D" uid="uid://ddv41m186w40n" path="res://Assets/Texture/roughness/FabricPlain_rough.png" id="3_4exfh"]
+
+[resource]
+albedo_texture = ExtResource("1_uiep5")
+roughness = 0.86
+roughness_texture = ExtResource("3_4exfh")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = -0.74
+normal_texture = ExtResource("2_7dtim")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true

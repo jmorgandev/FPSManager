@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://51vry12kxsjl"]
+
+[ext_resource type="PackedScene" uid="uid://msrkundq231i" path="res://Assets/Import/Models/lamp.glb" id="1_glwh3"]
+
+[node name="lamp" instance=ExtResource("1_glwh3")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0)
+
+[node name="Shade" parent="." index="1"]
+transparency = 0.27
+gi_mode = 2
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Shade" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0415998, 0)
+omni_attenuation = 2.92817
