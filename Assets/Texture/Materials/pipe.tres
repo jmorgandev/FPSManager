@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://f7edwcvmjf8x"]
+
+[ext_resource type="Texture2D" uid="uid://corig3kn7kg18" path="res://Assets/Texture/upscaled/Pipe.png" id="1_ny48s"]
+
+[resource]
+albedo_texture = ExtResource("1_ny48s")
+texture_filter = 0

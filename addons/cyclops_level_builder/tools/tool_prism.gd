@@ -34,17 +34,18 @@ var floor_normal:Vector3
 var base_points:PackedVector3Array
 var block_drag_cur:Vector3
 var drag_offset:Vector3
+var preview_point:Vector3
 
 func _activate(builder:CyclopsLevelBuilder):
 	super._activate(builder)
 
 	builder.mode = CyclopsLevelBuilder.Mode.OBJECT
-	var global_scene:CyclopsGlobalScene = builder.get_node("/root/CyclopsAutoload")
+	var global_scene:CyclopsGlobalScene = builder.get_global_scene()
 	global_scene.clear_tool_mesh()
 	
 
 func _draw_tool(viewport_camera:Camera3D):
-	var global_scene:CyclopsGlobalScene = builder.get_node("/root/CyclopsAutoload")
+	var global_scene:CyclopsGlobalScene = builder.get_global_scene()
 	global_scene.clear_tool_mesh()
 	global_scene.draw_selected_blocks(viewport_camera)
 
@@ -53,19 +54,19 @@ func _draw_tool(viewport_camera:Camera3D):
 		global_scene.draw_loop(bounding_points, true, global_scene.tool_material)
 		global_scene.draw_points(bounding_points, global_scene.tool_material)
 
+		global_scene.draw_vertex(preview_point, global_scene.tool_material)
+
 	if tool_state == ToolState.DRAG_HEIGHT:		
 		var bounding_points:PackedVector3Array = MathUtil.bounding_polygon_3d(base_points, floor_normal)
 		global_scene.draw_prism(bounding_points, drag_offset, global_scene.tool_material)
 	
 
 func _gui_input(viewport_camera:Camera3D, event:InputEvent)->bool:	
+	if !builder.active_node is CyclopsBlocks:
+		return false
+		
 	var blocks_root:CyclopsBlocks = self.builder.active_node
 	var grid_step_size:float = pow(2, builder.get_global_scene().grid_size)
-#	var global_scene:CyclopsGlobalScene = builder.get_node("/root/CyclopsAutoload")
-#	global_scene.clear_tool_mesh()
-#	global_scene.draw_selected_blocks(viewport_camera)
-
-	#_draw_tool(viewport_camera)
 
 	if event is InputEventKey:
 		var e:InputEventKey = event
@@ -109,6 +110,7 @@ func _gui_input(viewport_camera:Camera3D, event:InputEvent)->bool:
 						var p:Vector3 = to_local(result.position, blocks_root.global_transform.inverse(), grid_step_size)
 #
 						base_points.append(p)
+						preview_point = p
 
 						return true
 						
@@ -125,39 +127,54 @@ func _gui_input(viewport_camera:Camera3D, event:InputEvent)->bool:
 						
 				elif tool_state == ToolState.BASE_POINTS:
 					#print("add base point")
-					var p_isect:Vector3 = MathUtil.intersect_plane(origin, dir, base_points[0], floor_normal)
+					if e.double_click:
+						if e.is_pressed():
+							drag_offset = Vector3.ZERO
+							tool_state = ToolState.DRAG_HEIGHT
+						return true
 
+					var p_isect:Vector3 = MathUtil.intersect_plane(origin, dir, base_points[0], floor_normal)
 					var p:Vector3 = to_local(p_isect, blocks_root.global_transform.inverse(), grid_step_size)
 					base_points.append(p)
 
-					#print("base %s " % base_points)
-					var bounding_points:PackedVector3Array = MathUtil.bounding_polygon_3d(base_points, floor_normal)
-					#print("bounding %s " % bounding_points)
-					
+					var bounding_points:PackedVector3Array = MathUtil.bounding_polygon_3d(base_points, floor_normal)					
 					return true
+					
 				elif tool_state == ToolState.DRAG_HEIGHT:
 					var bounding_points:PackedVector3Array = MathUtil.bounding_polygon_3d(base_points, floor_normal)
 					drag_offset = block_drag_cur - base_points[0]
 					#drag_offset = Vector3.ZERO
 
-					var command:CommandAddPrism = CommandAddPrism.new()
-					command.block_name = GeneralUtil.find_unique_name(builder.active_node, "Block_")
-					command.blocks_root_inst_id = blocks_root.get_instance_id()
-					command.block_owner = builder.get_editor_interface().get_edited_scene_root()
-					command.base_polygon = bounding_points
-					command.extrude = drag_offset
-					command.uv_transform = builder.tool_uv_transform
-					command.material_path = builder.tool_material_path
+					var cmd:CommandAddPrism = CommandAddPrism.new()
+					cmd.builder = builder
+					cmd.block_name = GeneralUtil.find_unique_name(builder.active_node, "Block_")
+					cmd.blocks_root_path = blocks_root.get_path()
+#					command.block_owner = builder.get_editor_interface().get_edited_scene_root()
+					cmd.base_polygon = bounding_points
+					cmd.extrude = drag_offset
+					cmd.uv_transform = builder.tool_uv_transform
+					cmd.material_path = builder.tool_material_path
 
 					var undo:EditorUndoRedoManager = builder.get_undo_redo()
 
-					command.add_to_undo_manager(undo)
+					cmd.add_to_undo_manager(undo)
 					
 #					global_scene.clear_tool_mesh()
 #					global_scene.draw_selected_blocks(viewport_camera)
 					
 					tool_state = ToolState.READY
 					return true
+
+		if e.button_index == MOUSE_BUTTON_RIGHT:
+			
+			if tool_state == ToolState.BASE_POINTS:
+				if e.is_pressed():
+					for p_idx in base_points.size():
+						var screem_pos:Vector2 = viewport_camera.unproject_position(base_points[p_idx])
+						if screem_pos.distance_to(e.position) < builder.handle_screen_radius:
+							base_points.remove_at(p_idx)
+							break
+				return true		
 			
 	elif event is InputEventMouseMotion:
 		var e:InputEventMouseMotion = event
@@ -173,7 +190,12 @@ func _gui_input(viewport_camera:Camera3D, event:InputEvent)->bool:
 		var origin_local:Vector3 = w2l * origin
 		var dir_local:Vector3 = w2l.basis * dir
 
-		if tool_state == ToolState.DRAG_HEIGHT:
+		if tool_state == ToolState.BASE_POINTS:
+			var p_isect:Vector3 = MathUtil.intersect_plane(origin, dir, base_points[0], floor_normal)
+			preview_point = to_local(p_isect, blocks_root.global_transform.inverse(), grid_step_size)
+			
+
+		elif tool_state == ToolState.DRAG_HEIGHT:
 			block_drag_cur = MathUtil.closest_point_on_line(origin_local, dir_local, base_points[0], floor_normal)
 			
 			block_drag_cur = to_local(block_drag_cur, blocks_root.global_transform.inverse(), grid_step_size)

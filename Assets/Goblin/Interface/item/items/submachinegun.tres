@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cts6dh7ms6icd"]
+
+[ext_resource type="Script" path="res://Assets/Goblin/Interface/item/item_data.gd" id="1_epdld"]
+[ext_resource type="Texture2D" uid="uid://cavubx3gcdpvh" path="res://Assets/Goblin/Interface/item/Placeholder_Icons.png" id="2_5ssd1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euis0"]
+atlas = ExtResource("2_5ssd1")
+region = Rect2(0, 704, 32, 32)
+
+[resource]
+script = ExtResource("1_epdld")
+name = "Submachine Gun"
+description = "A gun"
+stackable = false
+texture = SubResource("AtlasTexture_euis0")

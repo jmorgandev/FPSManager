@@ -42,46 +42,30 @@ func _get_tool_id()->String:
 func _draw_tool(viewport_camera:Camera3D):
 	pass
 
+func _get_tool_properties_editor()->Control:
+	return null
+
 func _gui_input(viewport_camera:Camera3D, event:InputEvent)->bool:
 	if event is InputEventKey:
 		var e:InputEventKey = event
 
-		if e.is_pressed():
-			if e.keycode == KEY_X:
-#				var blocks_root:CyclopsBlocks = builder.active_node
-#
-#				var cmd:CommandDeleteBlocks = CommandDeleteBlocks.new()
-#				cmd.blocks_root_path = blocks_root.get_path()
-#				cmd.builder = builder
-#
-#				for child in blocks_root.get_children():
-#					if child is CyclopsConvexBlock:
-#						var block:CyclopsConvexBlock = child
-#						if block.selected:
-#							cmd.add_block(block.get_path())
-#
-#				if cmd.blocks_to_delete.size() > 0:
-#					var undo:EditorUndoRedoManager = builder.get_undo_redo()
-#					cmd.add_to_undo_manager(undo)
-
-				var blocks_root:CyclopsBlocks = builder.active_node
-				var cmd:CommandDeleteBlocks = CommandDeleteBlocks.new()
-				cmd.blocks_root_path = blocks_root.get_path()
-				cmd.builder = builder
-				if cmd.will_change_anything():
-					var undo:EditorUndoRedoManager = builder.get_undo_redo()
-					cmd.add_to_undo_manager(undo)
+		if e.keycode == KEY_X:
+			if e.is_pressed():
+				#print("cyc tool X")
+				var action:ActionDeleteSelectedBlocks = ActionDeleteSelectedBlocks.new(builder)
+				action._execute()
+			
+			return true
 				
-				return true
-				
-			if e.keycode == KEY_D:
-				if e.shift_pressed:
+		if e.keycode == KEY_D:
+			if e.is_pressed():
+				if e.shift_pressed && !Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 					
 					if builder.active_node and builder.active_node.has_selected_blocks():
 					
 						builder.switch_to_tool(ToolDuplicate.new())
 					
-					return true
+			return true
 	
 	if event is InputEventMouseButton:
 		var e:InputEventMouseButton = event

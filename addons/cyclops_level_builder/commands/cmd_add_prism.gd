@@ -25,14 +25,15 @@
 class_name CommandAddPrism
 extends CyclopsCommand
 
-var blocks_root_inst_id:int
+var blocks_root_path:NodePath
 var block_name:String
-var block_owner:Node
 var base_polygon:PackedVector3Array
 var extrude:Vector3
-var block_inst_id:int
 var uv_transform:Transform2D
 var material_path:String
+
+#Private
+var block_path:NodePath
 
 func _init():
 	command_name = "Add prism"
@@ -40,9 +41,10 @@ func _init():
 func do_it():
 	var block:CyclopsConvexBlock = preload("../nodes/cyclops_convex_block.gd").new()
 	
-	var blocks_root = instance_from_id(blocks_root_inst_id)
+	var blocks_root:CyclopsBlocks = builder.get_node(blocks_root_path)
 	blocks_root.add_child(block)
-	block.owner = block_owner
+	block.owner = builder.get_editor_interface().get_edited_scene_root()
+#	block.owner = block_owner
 	block.name = block_name
 
 	var material_id:int = -1
@@ -53,15 +55,15 @@ func do_it():
 			block.materials.append(mat)
 	
 	var mesh:ConvexVolume = ConvexVolume.new()
-	mesh.init_prisim(base_polygon, extrude, uv_transform, material_id)
+	mesh.init_prism(base_polygon, extrude, uv_transform, material_id)
 
 	block.block_data = mesh.to_convex_block_data()
-	block_inst_id = block.get_instance_id()
+	block_path = block.get_path()
 
 #	print("AddBlockCommand do_it() %s %s" % [block_inst_id, bounds])
 	
 func undo_it():
-	var block = instance_from_id(block_inst_id)
+	var block:CyclopsConvexBlock = builder.get_node(block_path)
 	block.queue_free()
 
 #	print("AddBlockCommand undo_it()")

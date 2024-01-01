@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://ptotmjpabegy"]
+
+[ext_resource type="Texture2D" uid="uid://c6mkpcvn4p8r6" path="res://Assets/Texture/upscaled/wall256a.png" id="1_xg05o"]
+[ext_resource type="Texture2D" uid="uid://vuixo0bk1pku" path="res://Assets/Texture/normals/wall256n.png" id="2_007mm"]
+[ext_resource type="Texture2D" uid="uid://ch4j2fm60a40u" path="res://Assets/Texture/roughness/wall256r.png" id="3_irh5i"]
+
+[resource]
+albedo_texture = ExtResource("1_xg05o")
+roughness_texture = ExtResource("3_irh5i")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("2_007mm")
+texture_filter = 0

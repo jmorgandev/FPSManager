@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dcf7k8kby13u8"]
+
+[ext_resource type="Texture2D" uid="uid://dsb40uxni72o6" path="res://Assets/Models/Level/tv_television.png" id="1_vefrg"]
+
+[resource]
+resource_name = "Case"
+cull_mode = 2
+albedo_texture = ExtResource("1_vefrg")
+roughness = 0.942708
+texture_filter = 2

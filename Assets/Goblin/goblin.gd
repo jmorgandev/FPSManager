@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+
+
+#signal collected(key_items)
+signal toggle_inventory
 @onready var MainCamera = get_node("%FP_Camera")
 @onready var neck = $neck
 @onready var head = $neck/head
@@ -8,12 +12,16 @@ extends CharacterBody3D
 @onready var default_collision_shape = $default_collision_shape
 @onready var ray_collision_y = $ray_collision_y
 
+@onready var animation_player = %AnimationPlayer
+
 var current_speed = 5
 @export var default_speed = 5.0
 @export var walk_speed = 3.0
 @export var sprint_speed = 8.0
 @export var crouch_speed = 2.0
 @export var runjump_speed = 10.00
+
+@export var inventory_data: InventoryData
 const JUMP_VELOCITY = 4.5
 #States
 var default  = false
@@ -24,7 +32,7 @@ var walking = false
 var sliding = false
 var freelooking = false
 
-var Inventory = false
+var InventoryState = false
 
 # Head Bob vars
 const headbobspeed_default = 12.0
@@ -53,37 +61,30 @@ var MouseSensitivity = 0.001
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 #region Mouse Look
-func _ready():
+func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-func _input(event):
-	if event.is_action_pressed("Inventory"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		Inventory = true
-		print("Inventory Open")
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		var MouseEvent = event.relative *MouseSensitivity
-		CameraLook(MouseEvent)
-		
-func CameraLook(Movement: Vector2):
-	CameraRotation += Movement
-	CameraRotation.y = clamp(CameraRotation.y, -1.5,1.2)
+		rotate_y(-event.relative.x * .005)
+		MainCamera.rotate_x(-event.relative.y * .005)
+		MainCamera.rotation.x = clamp(MainCamera.rotation.x, -PI/4, PI/4)
 	
-	transform.basis = Basis()
-	MainCamera.transform.basis = Basis()
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
+	if Input.is_action_just_pressed("Inventory"):
+		toggle_inventory.emit()
 	
-	rotate_object_local(Vector3(0,1,0), -CameraRotation.x) # first rotate y
-	MainCamera.rotate_object_local(Vector3(1,0,0), -CameraRotation.y) #then rotate x
-#endregion
-func _physics_process(delta):
+#Move State---------------------------------------------------------------------
+func _physics_process(delta: float):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		
-#Move State---------------------------------------------------------------------
 	#Getting movement input
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("Left", "Right", "Forward", "Back")
+
 	
 	# Idle Position 
 	default_collision_shape.disabled = false
@@ -94,7 +95,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("Sprint"): #Speed.
 		current_speed = sprint_speed
 		current_speed = lerp(current_speed,sprint_speed, delta*lerp_speed)
-		default  = false
+		default = false
 		sprinting = true
 		crouching = false
 		runjumping = false
@@ -103,7 +104,7 @@ func _physics_process(delta):
 		current_speed = default_speed
 		current_speed = lerp(current_speed,default_speed, delta*lerp_speed)
 		# default_speed is the default movement speed.
-		default  = true
+		default = true
 		sprinting = false
 		crouching = false
 		runjumping = false

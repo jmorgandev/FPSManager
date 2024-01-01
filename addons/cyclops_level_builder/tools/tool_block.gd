@@ -125,7 +125,7 @@ func start_block_drag(viewport_camera:Camera3D, event:InputEvent):
 	#print("set 1 tool_state %s" % tool_state)
 
 func _draw_tool(viewport_camera:Camera3D):
-	var global_scene:CyclopsGlobalScene = builder.get_node("/root/CyclopsAutoload")
+	var global_scene:CyclopsGlobalScene = builder.get_global_scene()
 	global_scene.clear_tool_mesh()
 	global_scene.draw_selected_blocks(viewport_camera)
 
@@ -136,8 +136,10 @@ func _draw_tool(viewport_camera:Camera3D):
 	if tool_state == ToolState.BLOCK_HEIGHT:
 		global_scene.draw_cube(block_drag_p0_local, block_drag_p1_local, block_drag_cur, global_scene.tool_material)
 
-func _gui_input(viewport_camera:Camera3D, event:InputEvent)->bool:	
-	var blocks_root:CyclopsBlocks = self.builder.active_node
+func _gui_input(viewport_camera:Camera3D, event:InputEvent)->bool:
+	if !builder.active_node is CyclopsBlocks:
+		return false
+	var blocks_root:CyclopsBlocks = builder.active_node
 
 	if event is InputEventKey:
 		var e:InputEventKey = event
@@ -227,6 +229,13 @@ func _gui_input(viewport_camera:Camera3D, event:InputEvent)->bool:
 					tool_state = ToolState.NONE			
 				
 			return true
+		
+		elif e.button_index == MOUSE_BUTTON_RIGHT:
+			if tool_state == ToolState.BLOCK_BASE || tool_state == ToolState.BLOCK_HEIGHT:
+				if e.is_pressed():
+					tool_state = ToolState.NONE
+				return true
+			
 			
 	elif event is InputEventMouseMotion:
 		var e:InputEventMouseMotion = event
@@ -288,10 +297,7 @@ func _gui_input(viewport_camera:Camera3D, event:InputEvent)->bool:
 				p01 = Vector3(block_drag_p0_local.x, block_drag_cur.y, block_drag_p0_local.z)
 				p10 = Vector3(block_drag_cur.x, block_drag_p0_local.y, block_drag_p0_local.z)
 
-#			global_scene.clear_tool_mesh()				
-#			global_scene.draw_selected_blocks(viewport_camera)
 			base_points = [block_drag_p0_local, p01, block_drag_cur, p10]
-#			global_scene.draw_loop([block_drag_p0_local, p01, block_drag_cur, p10], true, global_scene.tool_material)
 
 			return true
 
@@ -338,6 +344,6 @@ func _activate(builder:CyclopsLevelBuilder):
 	super._activate(builder)
 	
 	builder.mode = CyclopsLevelBuilder.Mode.OBJECT
-	var global_scene:CyclopsGlobalScene = builder.get_node("/root/CyclopsAutoload")
+	var global_scene:CyclopsGlobalScene = builder.get_global_scene()
 	global_scene.clear_tool_mesh()
 

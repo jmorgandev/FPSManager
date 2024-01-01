@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://dhttci643hj4t"]
+
+[ext_resource type="Texture2D" uid="uid://blkfb3q4bwv3j" path="res://Assets/Models/Level/tv_tvscreen-tvscreen_normal.png" id="1_cantx"]
+[ext_resource type="Texture2D" uid="uid://b0a31ggmm878o" path="res://Assets/Models/Level/tv_tvscreen_rough.png" id="2_s6v3r"]
+[ext_resource type="Texture2D" uid="uid://bokak2lu3rdur" path="res://Assets/Models/Level/tv_tvscreen_normal.png" id="3_dcnh7"]
+
+[resource]
+resource_name = "Screen"
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_cantx")
+metallic_texture = ExtResource("2_s6v3r")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_s6v3r")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_dcnh7")
+texture_filter = 2

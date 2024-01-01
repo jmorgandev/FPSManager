@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://u4dfutnghifp"]
+
+[ext_resource type="Script" path="res://Assets/HobGoblin/Systems/interactable.gd" id="1_sch7p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ahgo"]
+
+[node name="Interactable" type="Area3D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_sch7p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2ahgo")

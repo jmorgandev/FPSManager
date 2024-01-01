@@ -37,11 +37,14 @@ func _get_tool_id()->String:
 	return TOOL_ID
 
 func _draw_tool(viewport_camera:Camera3D):
-	var global_scene:CyclopsGlobalScene = builder.get_node("/root/CyclopsAutoload")
+	var global_scene:CyclopsGlobalScene = builder.get_global_scene()
 	global_scene.clear_tool_mesh()
 	global_scene.draw_selected_blocks(viewport_camera)
 
 func _gui_input(viewport_camera:Camera3D, event:InputEvent)->bool:	
+	if !builder.active_node is CyclopsBlocks:
+		return false
+		
 	var blocks_root:CyclopsBlocks = self.builder.active_node
 	var grid_step_size:float = pow(2, builder.get_global_scene().grid_size)
 #	var global_scene:CyclopsGlobalScene = builder.get_node("/root/CyclopsAutoload")
@@ -104,7 +107,7 @@ func _activate(builder:CyclopsLevelBuilder):
 	super._activate(builder)
 
 	#builder.mode = CyclopsLevelBuilder.Mode.OBJECT
-	var global_scene:CyclopsGlobalScene = builder.get_node("/root/CyclopsAutoload")
+	var global_scene:CyclopsGlobalScene = builder.get_global_scene()
 	global_scene.clear_tool_mesh()
 	
 	#Invoke command immediately

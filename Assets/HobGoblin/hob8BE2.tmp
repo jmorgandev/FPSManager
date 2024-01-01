@@ -1,0 +1,8 @@
+extends Node
+
+@onready var goblin = $Goblin
+@onready var inventory_interface = $UserInterface/InventoryInterface
+
+
+func _ready() -> void:
+	inventory_interface.set_goblin_inventory_data(goblin.inventory_data)

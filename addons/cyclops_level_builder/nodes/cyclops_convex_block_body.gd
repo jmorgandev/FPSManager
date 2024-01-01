@@ -26,8 +26,10 @@ extends Node3D
 class_name CyclopsConvexBlockBody
 
 var mesh_instance:MeshInstance3D
+var mesh_wire:MeshInstance3D
 var collision_body:StaticBody3D
 var collision_shape:CollisionShape3D
+var occluder:OccluderInstance3D
 
 var dirty:bool = true
 
@@ -48,10 +50,19 @@ var display_mode:DisplayMode.Type = DisplayMode.Type.TEXTURED
 func _ready():
 	mesh_instance = MeshInstance3D.new()
 	add_child(mesh_instance)
+	mesh_instance.gi_mode = GeometryInstance3D.GI_MODE_STATIC
+
+	if Engine.is_editor_hint():
+		mesh_wire = MeshInstance3D.new()
+		add_child(mesh_wire)
+	
 	collision_body = StaticBody3D.new()
 	add_child(collision_body)
 	collision_shape = CollisionShape3D.new()
 	collision_body.add_child(collision_shape)
+
+	occluder = OccluderInstance3D.new()
+	add_child(occluder)
 	
 	build_from_block()
 
@@ -80,27 +91,39 @@ func build_from_block():
 	
 	#print("volume %s" % vol)
 	
-	var mesh:ImmediateMesh = ImmediateMesh.new()
+#	var mesh:ImmediateMesh = ImmediateMesh.new()
+	var mesh:ArrayMesh
 
 	if Engine.is_editor_hint():
 #		var global_scene:CyclopsGlobalScene = get_node("/root/CyclopsAutoload")
 		var global_scene = get_node("/root/CyclopsAutoload")
-		vol.append_mesh_wire(mesh, global_scene.outline_material)
+		mesh_wire.mesh = vol.create_mesh_wire(global_scene.outline_material)
 		#print ("added wireframe")
 
 		if display_mode == DisplayMode.Type.TEXTURED:
-			vol.append_mesh(mesh, materials, default_material)
+			mesh = vol.create_mesh(materials, default_material)
 			#print ("added faces")
 	else:
-		vol.append_mesh(mesh, materials, default_material)
+		mesh = vol.create_mesh(materials, default_material)
 #	vol.append_mesh(mesh, materials, default_material)
 	
 	mesh_instance.mesh = mesh
+	
+#	print("===============")
+#	GeneralUtil.dump_properties(mesh_instance)
+#	print("---------------")
+#	GeneralUtil.dump_properties(mesh_instance.mesh)
 	
 	var shape:ConvexPolygonShape3D = ConvexPolygonShape3D.new()
 	shape.points = vol.get_points()
 	collision_shape.shape = shape
 	
+	if !Engine.is_editor_hint():
+		#Disabling this in the editor for now since this is causing slowdown
+		var occluder_object:ArrayOccluder3D = ArrayOccluder3D.new()
+		occluder_object.vertices = vol.get_points()
+		occluder_object.indices = vol.get_trimesh_indices()
+		occluder.occluder = occluder_object
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -32,6 +32,7 @@ const AUTOLOAD_NAME = "CyclopsAutoload"
 
 var material_dock:Control
 var uv_editor_dock:Control
+var tool_properties_dock:Control
 #var sticky_toolbar:StickyToolbar
 var editor_toolbar:EditorToolbar
 var activated:bool = false
@@ -82,7 +83,7 @@ func _get_plugin_name()->String:
 	return "CyclopsLevelBuilder"
 
 func _get_plugin_icon()->Texture2D:
-	return preload("res://icon.svg")
+	return preload("res://addons/cyclops_level_builder/art/cyclops.svg")
 
 func _enter_tree():
 	add_custom_type("CyclopsBlocks", "Node3D", preload("nodes/cyclops_blocks.gd"), preload("nodes/cyclops_blocks_icon.png"))
@@ -91,11 +92,14 @@ func _enter_tree():
 
 	add_autoload_singleton(AUTOLOAD_NAME, "res://addons/cyclops_level_builder/cyclops_global_scene.tscn")
 	
-	material_dock = preload("res://addons/cyclops_level_builder/controls/material_palette/material_palette_viewport.tscn").instantiate()
+	material_dock = preload("res://addons/cyclops_level_builder/docks/material_palette/material_palette_viewport.tscn").instantiate()
 	material_dock.builder = self
 	
-	uv_editor_dock = preload("res://addons/cyclops_level_builder/controls/uv_editor/uv_editor_viewport.tscn").instantiate()
+	uv_editor_dock = preload("res://addons/cyclops_level_builder/docks/uv_editor/uv_editor_viewport.tscn").instantiate()
 	uv_editor_dock.builder = self
+	
+	tool_properties_dock = preload("res://addons/cyclops_level_builder/docks/tool_properties/tool_properties_dock.tscn").instantiate()
+	tool_properties_dock.builder = self
 	
 	editor_toolbar = preload("menu/editor_toolbar.tscn").instantiate()
 	editor_toolbar.editor_plugin = self
@@ -140,12 +144,14 @@ func update_activation():
 				add_control_to_container(EditorPlugin.CONTAINER_SPATIAL_EDITOR_MENU, editor_toolbar)
 				add_control_to_dock(DOCK_SLOT_RIGHT_BL, material_dock)
 				add_control_to_dock(DOCK_SLOT_RIGHT_BL, uv_editor_dock)
+				add_control_to_dock(DOCK_SLOT_RIGHT_BL, tool_properties_dock)
 				activated = true
 		else:
 			if activated:
 				remove_control_from_container(EditorPlugin.CONTAINER_SPATIAL_EDITOR_MENU, editor_toolbar)
 				remove_control_from_docks(material_dock)
 				remove_control_from_docks(uv_editor_dock)
+				remove_control_from_docks(tool_properties_dock)
 				activated = false
 	else:
 		active_node = null
@@ -166,11 +172,13 @@ func _exit_tree():
 	if activated:
 		remove_control_from_docks(material_dock)
 		remove_control_from_docks(uv_editor_dock)
+		remove_control_from_docks(tool_properties_dock)
 		remove_control_from_container(EditorPlugin.CONTAINER_SPATIAL_EDITOR_MENU, editor_toolbar)
 
 	material_dock.queue_free()
 	uv_editor_dock.queue_free()
-	editor_toolbar.queue_free()
+	tool_properties_dock.queue_free()
+	editor_toolbar.queue_free()	
 
 func _handles(object:Object):
 	return object is CyclopsBlocks or object is CyclopsConvexBlock
@@ -193,11 +201,13 @@ func _get_state()->Dictionary:
 	var state:Dictionary = {}
 	material_dock.save_state(state)
 	uv_editor_dock.save_state(state)
+	tool_properties_dock.save_state(state)
 	return state
 	
 func _set_state(state):
 	material_dock.load_state(state)
 	uv_editor_dock.load_state(state)
+	tool_properties_dock.load_state(state)
 
 func switch_to_tool(_tool:CyclopsTool):
 	if tool:
@@ -207,6 +217,8 @@ func switch_to_tool(_tool:CyclopsTool):
 
 	if tool:
 		tool._activate(self)
+		var control:Control = tool._get_tool_properties_editor()
+		tool_properties_dock.set_editor(control)
 
 func get_global_scene()->CyclopsGlobalScene:
 	var scene:CyclopsGlobalScene = get_node("/root/CyclopsAutoload")

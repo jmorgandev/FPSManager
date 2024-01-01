@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3cl77r65dexu"]
+[gd_scene load_steps=6 format=3 uid="uid://c3cl77r65dexu"]
 
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/menu/editor_toolbar.gd" id="1_o71fd"]
+[ext_resource type="Script" path="res://addons/cyclops_level_builder/menu/action_popup_menu.gd" id="2_ni0c8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o7kxq"]
 
@@ -12,6 +13,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxEmpty_o7kxq")
 [node name="PanelContainer" type="PanelContainer"]
 offset_right = 739.0
 offset_bottom = 31.0
+size_flags_horizontal = 3
 theme = SubResource("Theme_0hxey")
 script = ExtResource("1_o71fd")
 
@@ -26,6 +28,8 @@ Click and drag on a selected block to move it in the XZ plane.  Hold Alt to drag
 
 Ctrl-click and drag on the face of a block to move the face along its normal.
 
+Escape or right click to cancel drawing the block.
+
 Click on block to select it.  Shift-Click toggles, Ctrl-Click adds and Shift-Ctrl Click subtracts.
 
 Click in empty space to clear selection."
@@ -36,9 +40,9 @@ text = "Block"
 
 [node name="bn_prism" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-tooltip_text = "Click on surface of block or in empty space to begin creating base of prism.
+tooltip_text = "Click on surface of block or in empty space to begin creating base of a prism.
 
-Click to add new point.  Backspace to remove the last point you added.
+Click to add new point.  Backspace to remove the last point you added.  You can also right click on a point to remove it.
 
 Press Enter to extrude base.
 
@@ -46,6 +50,28 @@ Press Enter again to finish extruding and create block."
 toggle_mode = true
 button_group = SubResource("ButtonGroup_i8xwa")
 text = "Prism"
+
+[node name="bn_cylinder" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Click on surface of block or in empty space to begin creating base of a cylinder.
+
+Release the mouse to enter height drawing mode.  If you have the tube option selected, you will draw the second ring instead.
+
+Use the mouse wheel to change the number of sides of the cylinder while drawing."
+toggle_mode = true
+button_group = SubResource("ButtonGroup_i8xwa")
+text = "Cylinder"
+
+[node name="bn_stairs" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Click on surface of block or in empty space to begin creating base of a stair case.
+
+Release mouse button and drag upwards to adjust the height of the stairs.
+
+Use the mouse wheel to change the direction the stairs face.  Ctrl-Wheel to change the height of each step, Ctrl-Shift-Wheel to change the depth of each step."
+toggle_mode = true
+button_group = SubResource("ButtonGroup_i8xwa")
+text = "Stairs"
 
 [node name="bn_clip" type="Button" parent="HBoxContainer"]
 layout_mode = 2
@@ -95,51 +121,51 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_i8xwa")
 text = "Face"
 
-[node name="bn_duplicate" type="Button" parent="HBoxContainer"]
+[node name="MenuBar" type="MenuBar" parent="HBoxContainer"]
 layout_mode = 2
-tooltip_text = "Duplicate selected blocks.  Click to place the duplicates.
 
-This command can also be started by pressing Shfit-D."
-text = "Duplicate"
-
-[node name="bn_delete" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-tooltip_text = "Delete selected blocks.
-
-Can also be done by pressing X key."
-text = "Delete
-"
-
-[node name="MenuButton" type="MenuButton" parent="HBoxContainer"]
-layout_mode = 2
-text = "Edit"
-item_count = 13
-popup/item_0/text = "Rotate 90 Ccw X"
-popup/item_0/id = 0
-popup/item_1/text = "Rotate 90 Cw X"
-popup/item_1/id = 1
-popup/item_2/text = "Rotate 180 X"
-popup/item_2/id = 2
-popup/item_3/text = "Rotate 90 Ccw Y"
-popup/item_3/id = 3
-popup/item_4/text = "Rotate 90 Cw Y"
-popup/item_4/id = 4
-popup/item_5/text = "Rotate 180 Y"
-popup/item_5/id = 5
-popup/item_6/text = "Rotate 90 Ccw Z"
-popup/item_6/id = 6
-popup/item_7/text = "Rotate 90 Cw Z"
-popup/item_7/id = 7
-popup/item_8/text = "Rotate 180 Z"
-popup/item_8/id = 8
-popup/item_9/text = "Mirror Selection X"
-popup/item_9/id = 9
-popup/item_10/text = "Mirror Selection Y"
-popup/item_10/id = 10
-popup/item_11/text = "Mirror Selection Z"
-popup/item_11/id = 11
-popup/item_12/text = "Snap to grid"
-popup/item_12/id = 12
+[node name="Menu" type="PopupMenu" parent="HBoxContainer/MenuBar"]
+item_count = 18
+item_0/text = "Duplicate Selected Blocks"
+item_0/id = 1000
+item_1/text = "Delete Selected Blocks"
+item_1/id = 1001
+item_2/text = "Snap to grid"
+item_2/id = 1002
+item_3/text = ""
+item_3/id = -1
+item_3/separator = true
+item_4/text = "Rotate 90 Ccw X"
+item_4/id = 1003
+item_5/text = "Rotate 90 Cw X"
+item_5/id = 1004
+item_6/text = "Rotate 180 X"
+item_6/id = 1005
+item_7/text = "Mirror Selection X"
+item_7/id = 1006
+item_8/text = ""
+item_8/id = -1
+item_8/separator = true
+item_9/text = "Rotate 90 Ccw Y"
+item_9/id = 1007
+item_10/text = "Rotate 90 Cw Y"
+item_10/id = 1008
+item_11/text = "Rotate 180 Y"
+item_11/id = 1009
+item_12/text = "Mirror Selection Y"
+item_12/id = 1010
+item_13/text = ""
+item_13/id = -1
+item_13/separator = true
+item_14/text = "Rotate 90 Ccw Z"
+item_14/id = 1011
+item_15/text = "Rotate 90 Cw Z"
+item_15/id = 1012
+item_16/text = "Rotate 180 Z"
+item_16/id = 1013
+item_17/text = "Mirror Selection Z"
+item_17/id = 1014
+script = ExtResource("2_ni0c8")
 
 [node name="check_lock_uvs" type="CheckBox" parent="HBoxContainer"]
 layout_mode = 2
@@ -180,12 +206,12 @@ popup/item_1/id = 1
 
 [connection signal="pressed" from="HBoxContainer/bn_block" to="." method="_on_bn_move_pressed"]
 [connection signal="pressed" from="HBoxContainer/bn_prism" to="." method="_on_bn_prism_pressed"]
+[connection signal="pressed" from="HBoxContainer/bn_cylinder" to="." method="_on_bn_cylinder_pressed"]
+[connection signal="pressed" from="HBoxContainer/bn_stairs" to="." method="_on_bn_stairs_pressed"]
 [connection signal="pressed" from="HBoxContainer/bn_clip" to="." method="_on_bn_clip_pressed"]
 [connection signal="pressed" from="HBoxContainer/bn_vertex" to="." method="_on_bn_vertex_pressed"]
 [connection signal="pressed" from="HBoxContainer/bn_edge" to="." method="_on_bn_edge_pressed"]
 [connection signal="pressed" from="HBoxContainer/bn_face" to="." method="_on_bn_face_pressed"]
-[connection signal="pressed" from="HBoxContainer/bn_duplicate" to="." method="_on_bn_duplicate_pressed"]
-[connection signal="pressed" from="HBoxContainer/bn_delete" to="." method="_on_bn_delete_pressed"]
 [connection signal="toggled" from="HBoxContainer/check_lock_uvs" to="." method="_on_check_lock_uvs_toggled"]
 [connection signal="item_selected" from="HBoxContainer/grid_size" to="." method="_on_grid_size_item_selected"]
 [connection signal="item_selected" from="HBoxContainer/display_mode" to="." method="_on_display_mode_item_selected"]

@@ -158,7 +158,7 @@ func clear_tool_mesh():
 	#$ToolInstance3D.mesh = tool_mesh
 	tool_mesh.clear_surfaces()
 	
-
+# Draws the bounding box for the points [p0, p1, p2]
 func draw_cube(p0:Vector3, p1:Vector3, p2:Vector3, mat:Material = null):	
 #	print ("draw_cube %s %s %s" % [p0, p1, p2])
 	
@@ -234,12 +234,13 @@ func draw_selected_blocks(viewport_camera:Camera3D):
 	var global_scene:CyclopsGlobalScene = builder.get_node("/root/CyclopsAutoload")
 	#var mesh:ImmediateMesh = ImmediateMesh.new()
 
-	var blocks_root:CyclopsBlocks = self.builder.active_node
-	for child in blocks_root.get_children():
-		if child is CyclopsConvexBlock:
-			var block:CyclopsConvexBlock = child
-			if block.selected:
-				block.append_mesh_outline(tool_mesh, viewport_camera, blocks_root.global_transform)
+	if builder.active_node is CyclopsBlocks:
+		var blocks_root:CyclopsBlocks = builder.active_node
+		for child in blocks_root.get_children():
+			if child is CyclopsConvexBlock:
+				var block:CyclopsConvexBlock = child
+				if block.selected:
+					block.append_mesh_outline(tool_mesh, viewport_camera, blocks_root.global_transform)
 					
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

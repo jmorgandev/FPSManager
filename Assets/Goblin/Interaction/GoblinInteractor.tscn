@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://drlrrvfu1fjhj"]
+
+[ext_resource type="PackedScene" uid="uid://cpprxgq50ufbc" path="res://Assets/Goblin/Interaction/Interactor.tscn" id="1_rmxxm"]
+[ext_resource type="Script" path="res://Assets/Goblin/Interaction/GoblinInteractor.gd" id="2_kh1e3"]
+
+[node name="GoblinInteractor" instance=ExtResource("1_rmxxm")]
+script = ExtResource("2_kh1e3")
+
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

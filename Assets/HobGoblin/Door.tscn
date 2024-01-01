@@ -1,0 +1,108 @@
+[gd_scene load_steps=14 format=3 uid="uid://bvtf45ne3218p"]
+
+[ext_resource type="ArrayMesh" uid="uid://domrgva2j4txn" path="res://Assets/Models/Level/door_Cube.res" id="1_tu0ks"]
+[ext_resource type="ArrayMesh" uid="uid://dep8fehx3eruq" path="res://Assets/Models/Level/door_Cube_002.res" id="2_jfwcp"]
+[ext_resource type="ArrayMesh" uid="uid://bqqm3eap8v0nn" path="res://Assets/Models/Level/door_Cube_001.res" id="3_pvlqc"]
+[ext_resource type="Script" path="res://Assets/HobGoblin/Systems/door.gd" id="3_syas3"]
+[ext_resource type="ArrayMesh" uid="uid://b0vwraruqglnf" path="res://Assets/Models/Level/door_Cube_003.res" id="4_pqf5b"]
+[ext_resource type="PackedScene" uid="uid://dl12m8kj1nq65" path="res://Assets/HobGoblin/Systems/interactable.tscn" id="6_cebwi"]
+[ext_resource type="Animation" uid="uid://ds5n0v1ii8k1o" path="res://Assets/HobGoblin/animations/Doors/open.res" id="6_r61is"]
+[ext_resource type="Animation" uid="uid://bou41g3jebv2b" path="res://Assets/HobGoblin/animations/Doors/close.res" id="7_k4jwx"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c7imm"]
+data = PackedVector3Array(-0.5, -0.1, 0.0486, -0.5, 2.2, -0.0486, -0.5, 2.2, 0.0486, -0.5, -0.1, 0.0486, -0.5, -0.1, -0.0486, -0.5, 2.2, -0.0486, -0.363, 0, -0.0486, -0.363, 2.04, 0.0486, -0.363, 2.04, -0.0486, -0.363, 0, -0.0486, -0.363, 0, 0.0486, -0.363, 2.04, 0.0486, -0.363, 2.04, -0.0486, -0.5, -0.1, -0.0486, -0.363, 0, -0.0486, 0.5, 2.2, -0.0486, 0.363, 0, -0.0486, 0.5, -0.1, -0.0486, 0.5, 2.2, -0.0486, 0.363, 2.04, -0.0486, 0.363, 0, -0.0486, -0.363, 2.04, -0.0486, -0.5, 2.2, -0.0486, -0.5, -0.1, -0.0486, 0.5, 2.2, -0.0486, -0.363, 2.04, -0.0486, 0.363, 2.04, -0.0486, -0.5, 2.2, -0.0486, -0.363, 2.04, -0.0486, 0.5, 2.2, -0.0486, 0.5, -0.1, -0.0486, -0.363, 0, -0.0486, -0.5, -0.1, -0.0486, 0.5, -0.1, -0.0486, 0.363, 0, -0.0486, -0.363, 0, -0.0486, 0.5, -0.1, -0.0486, 0.5, 2.2, 0.0486, 0.5, 2.2, -0.0486, 0.5, -0.1, -0.0486, 0.5, -0.1, 0.0486, 0.5, 2.2, 0.0486, 0.363, 0, -0.0486, 0.363, 2.04, 0.0486, 0.363, 0, 0.0486, 0.363, 0, -0.0486, 0.363, 2.04, -0.0486, 0.363, 2.04, 0.0486, 0.363, 2.04, 0.0486, 0.5, -0.1, 0.0486, 0.363, 0, 0.0486, -0.5, 2.2, 0.0486, -0.363, 0, 0.0486, -0.5, -0.1, 0.0486, -0.5, 2.2, 0.0486, -0.363, 2.04, 0.0486, -0.363, 0, 0.0486, 0.363, 2.04, 0.0486, 0.5, 2.2, 0.0486, 0.5, -0.1, 0.0486, -0.5, 2.2, 0.0486, 0.363, 2.04, 0.0486, -0.363, 2.04, 0.0486, 0.5, 2.2, 0.0486, 0.363, 2.04, 0.0486, -0.5, 2.2, 0.0486, -0.363, 0, 0.0486, 0.5, -0.1, 0.0486, -0.5, -0.1, 0.0486, -0.363, 0, 0.0486, 0.363, 0, 0.0486, 0.5, -0.1, 0.0486, -0.5, -0.1, -0.0486, 0.5, -0.1, 0.0486, 0.5, -0.1, -0.0486, -0.5, -0.1, -0.0486, -0.5, -0.1, 0.0486, 0.5, -0.1, 0.0486, 0.5, 2.2, -0.0486, -0.5, 2.2, 0.0486, -0.5, 2.2, -0.0486, 0.5, 2.2, -0.0486, 0.5, 2.2, 0.0486, -0.5, 2.2, 0.0486, 0.363, 2.04, -0.0486, -0.363, 2.04, 0.0486, 0.363, 2.04, 0.0486, 0.363, 2.04, -0.0486, -0.363, 2.04, -0.0486, -0.363, 2.04, 0.0486, -0.363, 0, -0.0486, 0.363, 0, 0.0486, -0.363, 0, 0.0486, -0.363, 0, -0.0486, 0.363, 0, -0.0486, 0.363, 0, 0.0486)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_082pc"]
+data = PackedVector3Array(-0.363, 0, -0.022, -0.363, 2.04, 0.022, -0.363, 2.04, -0.022, -0.363, 0, -0.022, -0.363, 0, 0.022, -0.363, 2.04, 0.022, -0.363, 0, 0.022, 0.363, 2.04, 0.022, -0.363, 2.04, 0.022, -0.363, 0, 0.022, 0.363, 0, 0.022, 0.363, 2.04, 0.022, 0.363, 0, 0.022, 0.363, 2.04, -0.022, 0.363, 2.04, 0.022, 0.363, 0, 0.022, 0.363, 0, -0.022, 0.363, 2.04, -0.022, 0.363, 0, -0.022, -0.363, 2.04, -0.022, 0.363, 2.04, -0.022, 0.363, 0, -0.022, -0.363, 0, -0.022, -0.363, 2.04, -0.022, -0.363, 0, 0.022, 0.363, 0, -0.022, 0.363, 0, 0.022, -0.363, 0, 0.022, -0.363, 0, -0.022, 0.363, 0, -0.022, 0.363, 2.04, 0.022, -0.363, 2.04, -0.022, -0.363, 2.04, 0.022, 0.363, 2.04, 0.022, 0.363, 2.04, -0.022, -0.363, 2.04, -0.022)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cr4n5"]
+size = Vector3(0.5, 0.5, 1)
+
+[sub_resource type="Animation" id="Animation_s3v74"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody3D:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody3D:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q3ewh"]
+_data = {
+"RESET": SubResource("Animation_s3v74"),
+"close": ExtResource("7_k4jwx"),
+"open": ExtResource("6_r61is")
+}
+
+[node name="Door" type="StaticBody3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="DoorWay" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0, 0)
+mesh = ExtResource("1_tu0ks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_c7imm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+script = ExtResource("3_syas3")
+
+[node name="Door" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0, 0)
+mesh = ExtResource("2_jfwcp")
+skeleton = NodePath("Socket")
+
+[node name="Socket" type="MeshInstance3D" parent="StaticBody3D/Door"]
+mesh = ExtResource("3_pvlqc")
+skeleton = NodePath("../../../DoorWay")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.333333, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_082pc")
+
+[node name="Interactable" parent="StaticBody3D" instance=ExtResource("6_cebwi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.85, 0)
+
+[node name="CollisionShape3D" parent="StaticBody3D/Interactable" index="0"]
+shape = SubResource("BoxShape3D_cr4n5")
+
+[node name="Handle" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0, 0)
+mesh = ExtResource("4_pqf5b")
+skeleton = NodePath("../Door")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_q3ewh")
+}
+
+[editable path="StaticBody3D/Interactable"]

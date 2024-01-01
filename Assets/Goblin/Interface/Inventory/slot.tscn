@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bai6m4udb63tu"]
+
+[ext_resource type="FontFile" uid="uid://rul7jdtj62gd" path="res://Assets/Goblin/Interface/Inventory/MSMINCHO.TTF" id="1_bnool"]
+[ext_resource type="Script" path="res://Assets/Goblin/Interface/Inventory/slot.gd" id="2_pk3p3"]
+
+[sub_resource type="Theme" id="Theme_dy121"]
+default_font = ExtResource("1_bnool")
+default_font_size = 0
+
+[node name="Slot" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_dy121")
+script = ExtResource("2_pk3p3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "x99"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

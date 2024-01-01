@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=7 format=3 uid="uid://cgip4g4hnq85c"]
+
+[ext_resource type="Script" path="res://Assets/Goblin/Interface/Inventory/inventory_data.gd" id="1_aq7on"]
+[ext_resource type="Resource" uid="uid://cqia2ev11046o" path="res://Assets/Goblin/Interface/item/items/apple.tres" id="2_isq63"]
+[ext_resource type="Script" path="res://Assets/Goblin/Interface/Inventory/slot_data.gd" id="3_n6vc0"]
+[ext_resource type="Resource" uid="uid://cts6dh7ms6icd" path="res://Assets/Goblin/Interface/item/items/submachinegun.tres" id="4_tj8ss"]
+
+[sub_resource type="Resource" id="Resource_kmos7"]
+script = ExtResource("3_n6vc0")
+item_data = ExtResource("2_isq63")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_n1316"]
+script = ExtResource("3_n6vc0")
+item_data = ExtResource("4_tj8ss")
+quantity = 1
+
+[resource]
+script = ExtResource("1_aq7on")
+slot_datas = Array[ExtResource("3_n6vc0")]([SubResource("Resource_kmos7"), null, null, null, SubResource("Resource_n1316"), null, null, null, null, null, null])
