@@ -12,7 +12,7 @@ radius = 0.3
 height = 1.85
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_80kjg"]
-radius = 0.4
+radius = 0.3
 height = 0.8
 
 [sub_resource type="Skin" id="Skin_upg1k"]
