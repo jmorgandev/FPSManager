@@ -902,7 +902,7 @@ mesh = ExtResource("11_uc062")
 environment = ExtResource("20_gt72n")
 
 [node name="Goblin" parent="." instance=ExtResource("7_ixmm5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45, 0, 3.225)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45, 0, 4.575)
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 

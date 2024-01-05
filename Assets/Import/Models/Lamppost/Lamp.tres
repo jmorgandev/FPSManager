@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b1ked88gbro5o"]
+
+[resource]
+resource_name = "Lamp"
+blend_mode = 1
+depth_draw_mode = 1
+diffuse_mode = 1
+specular_mode = 1
+albedo_color = Color(0.905882, 0.803922, 0.137255, 0.329412)
+roughness = 0.1
+emission = Color(0.592157, 0.592157, 0.164706, 1)
+emission_operator = 1
+rim = 0.24
+clearcoat_enabled = true
+refraction_enabled = true
+refraction_scale = 0.1

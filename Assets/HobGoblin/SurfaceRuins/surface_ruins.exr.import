@@ -1,0 +1,26 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://4r8hbth7tcga"
+path="res://.godot/imported/surface_ruins.exr-951d9d3e1540b32130857bfa1ec1608c.ctexarray"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Assets/HobGoblin/SurfaceRuins/surface_ruins.exr"
+dest_files=["res://.godot/imported/surface_ruins.exr-951d9d3e1540b32130857bfa1ec1608c.ctexarray"]
+
+[params]
+
+compress/mode=3
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=1
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=1
+slices/vertical=1
