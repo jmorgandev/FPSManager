@@ -39,7 +39,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": ""
+"save_to_file/path": "res://Assets/Models/Level/Lamp_Base.res"
 },
 "lamp_Cube_001": {
 "generate/lightmap_uv": 0,
@@ -49,7 +49,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://Assets/Import/Models/lamp_Cube_001.res"
+"save_to_file/path": "res://Assets/Models/Level/Lamp_Cord.res"
 },
 "lamp_Cylinder": {
 "generate/lightmap_uv": 0,
@@ -59,7 +59,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://Assets/Import/Models/lamp_Cylinder.res"
+"save_to_file/path": "res://Assets/Models/Level/Lamp_Shade.res"
 }
 }
 }

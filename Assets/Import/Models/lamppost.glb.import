@@ -35,6 +35,10 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://Assets/Import/Models/Lamppost/Lamp.tres"
 },
+"Light": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/Import/Models/Light.tres"
+},
 "Metal": {
 "use_external/enabled": true,
 "use_external/path": "res://Assets/Import/Models/Lamppost/Metal.tres"
@@ -49,7 +53,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://Assets/Models/Level/lamppost_Cube_001.res"
+"save_to_file/path": "res://Assets/Models/Level/Lamppost_Base.res"
 },
 "lamppost_Cylinder": {
 "generate/lightmap_uv": 0,
@@ -59,7 +63,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://Assets/Models/Level/lamppost_Cylinder.res"
+"save_to_file/path": "res://Assets/Models/Level/Lamppost_Light.res"
 }
 }
 }

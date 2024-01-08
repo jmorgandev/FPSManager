@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b7t5f8si2of0x"]
+
+[ext_resource type="Texture2D" uid="uid://bbin7r8k62w81" path="res://Assets/Texture/upscaled/stonewall.png" id="1_jbg66"]
+
+[resource]
+resource_name = "PortW"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+albedo_texture = ExtResource("1_jbg66")
+roughness = 0.5
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_offset = Vector3(0, 0.345, 0)
+uv1_triplanar = true
+texture_filter = 4

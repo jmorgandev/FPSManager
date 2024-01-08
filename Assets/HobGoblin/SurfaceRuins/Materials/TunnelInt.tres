@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://c8twpsnwedxn"]
+
+[ext_resource type="Texture2D" uid="uid://baqarfalvgm7i" path="res://Assets/Texture/upscaled/Tunnel.png" id="1_bi553"]
+[ext_resource type="Texture2D" uid="uid://ewqa8ss8s8wy" path="res://Assets/Texture/normals/Tunnel_normal.png" id="2_jvmmt"]
+[ext_resource type="Texture2D" uid="uid://divvx55tyfamp" path="res://Assets/Texture/roughness/Tunnel_rough.png" id="3_87oa7"]
+
+[resource]
+resource_name = "TunnelInt"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+albedo_texture = ExtResource("1_bi553")
+roughness_texture = ExtResource("3_87oa7")
+normal_enabled = true
+normal_texture = ExtResource("2_jvmmt")
+uv1_offset = Vector3(0.25, -0.93, 0)
+uv1_triplanar = true
+texture_filter = 4

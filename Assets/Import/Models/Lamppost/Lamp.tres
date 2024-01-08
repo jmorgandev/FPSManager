@@ -2,15 +2,16 @@
 
 [resource]
 resource_name = "Lamp"
-blend_mode = 1
-depth_draw_mode = 1
+transparency = 1
+cull_mode = 2
 diffuse_mode = 1
 specular_mode = 1
-albedo_color = Color(0.905882, 0.803922, 0.137255, 0.329412)
+albedo_color = Color(0.905882, 0.803922, 0.137255, 0.12549)
 roughness = 0.1
-emission = Color(0.592157, 0.592157, 0.164706, 1)
-emission_operator = 1
+emission = Color(0.894118, 0.898039, 0.407843, 1)
+emission_energy_multiplier = 4.06
 rim = 0.24
 clearcoat_enabled = true
 refraction_enabled = true
 refraction_scale = 0.1
+texture_filter = 4
