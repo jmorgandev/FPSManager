@@ -1,18 +1,18 @@
 extends Resource
 
 class_name Weapon_Resource
-
+#Weapon Variables
 @export var Weapon_name: String
-@export var Activate_Anim: String
-@export var Shoot_Anim: String
-@export var Reload_Anim: String
-@export var Deactivate_Anim: String
-@export var Out_Of_Ammo: String
-
-@export var Current_Ammo: int
-@export var Reserve_Ammo: int
-@export var Equipped_Magazine: int
-@export var Total_ammo: int
-
-@export var Auto_Fire: bool
+@export var activate_anim: String
+@export var shoot_anim: String
+@export var reload_anim: String
+@export var deactivate_anim: String
+@export var empty_anim: String
+#Ammo Variables
+@export var current_ammo: int
+@export var reserve_ammo: int
+@export var equipped_magazine: int
+@export var total_ammo: int
+#Fire Type
+@export var auto_fire: bool
 

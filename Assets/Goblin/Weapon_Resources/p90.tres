@@ -1,17 +1,17 @@
-[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=2 format=3 uid="uid://bjb4o2qowacmk"]
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=2 format=3 uid="uid://cejytm1acesp4"]
 
-[ext_resource type="Script" path="res://Assets/Goblin/Weapon_resource.gd" id="1_3kqhc"]
+[ext_resource type="Script" path="res://Assets/Goblin/weapon_resource.gd" id="1_432jc"]
 
 [resource]
-script = ExtResource("1_3kqhc")
-Weapon_name = ""
-Activate_Anim = ""
-Shoot_Anim = ""
-Reload_Anim = ""
-Deactivate_Anim = ""
-Out_Of_Ammo = ""
-Current_Ammo = 0
-Reserve_Ammo = 0
-Equipped_Magazine = 0
-Total_ammo = 0
-Auto_Fire = false
+script = ExtResource("1_432jc")
+Weapon_name = "P90"
+activate_anim = "p90/activate"
+shoot_anim = "p90/fire"
+reload_anim = "p90/reload"
+deactivate_anim = "p90/deactivate"
+empty_anim = "p90/ooa"
+current_ammo = 50
+reserve_ammo = 50
+equipped_magazine = 50
+total_ammo = 310
+auto_fire = true
