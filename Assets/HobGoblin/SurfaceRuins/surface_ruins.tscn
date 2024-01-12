@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://bmiy5u0ceooc4"]
+[gd_scene load_steps=109 format=3 uid="uid://bmiy5u0ceooc4"]
 
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/nodes/cyclops_blocks.gd" id="1_6ollm"]
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/nodes/cyclops_convex_block.gd" id="2_dqdro"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cf10y8ugjjslo" path="res://Assets/Texture/normals/cliffface512_normal.png" id="27_vmceb"]
 [ext_resource type="PackedScene" uid="uid://dn1ums6hgej4l" path="res://Assets/HobGoblin/lamp_post.tscn" id="27_wjl64"]
 [ext_resource type="Texture2D" uid="uid://c4t7tp27yvo12" path="res://Assets/Texture/roughness/cliffface512_rough.png" id="28_s5nxr"]
+[ext_resource type="PackedScene" uid="uid://daq56nasaks8g" path="res://Assets/HobGoblin/ModelScenes/minelift.tscn" id="30_us137"]
 
 [sub_resource type="Resource" id="Resource_cla1j"]
 script = ExtResource("3_6jvpm")
@@ -1737,6 +1738,9 @@ shape = SubResource("ConcavePolygonShape3D_7ln6t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.4292, -101.839)
 omni_range = 59.696
 omni_attenuation = 0.517632
+
+[node name="elevator" parent="." instance=ExtResource("30_us137")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.103, 0.470783, -139.443)
 
 [editable path="Olddoor"]
 [editable path="Olddoor/DoorL/doorl/StaticBody3D/CollisionShape3D/Interactable"]

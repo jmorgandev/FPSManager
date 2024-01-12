@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://o731l47qs32x"]
+
+[ext_resource type="PackedScene" uid="uid://d3sjt2qwvhcg4" path="res://Assets/Import/Models/tilesets/chapeltile.glb" id="1_k412t"]
+
+[node name="chapeltile" instance=ExtResource("1_k412t")]

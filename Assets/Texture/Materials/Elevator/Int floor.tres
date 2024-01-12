@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bob4chhs5liqp"]
+
+[ext_resource type="Texture2D" uid="uid://b88dpyqo857ae" path="res://Assets/Import/Models/Elevator/elevator_elefloor.png" id="1_nnxb8"]
+
+[resource]
+resource_name = "Int floor"
+cull_mode = 2
+albedo_texture = ExtResource("1_nnxb8")
+roughness = 0.5
+texture_filter = 4

@@ -11,5 +11,4 @@ roughness_texture_channel = 4
 normal_enabled = true
 normal_texture = ExtResource("2_i4i37")
 uv1_scale = Vector3(2, 2, 2)
-uv1_triplanar = true
 uv1_triplanar_sharpness = 0.535887
