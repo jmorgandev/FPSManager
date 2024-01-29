@@ -30,7 +30,7 @@ func _input(event):
 func Initialise(_start_weapons: Array):
 	#Create a Dictionary to refer to our weapons
 	for weapon in _weapon_resources:
-		Weapon_List[weapon.Weapon_name] = weapon
+		Weapon_List[weapon.weapon_name] = weapon
 		
 	for i in _start_weapons:
 		Weapon_Stack.push_back(i) #Add Starting Weapon
@@ -40,16 +40,23 @@ func Initialise(_start_weapons: Array):
 	
 func enter():
 	#Call wehn first "entering" into a weapon
-	pass
 	Animation_Player.queue(Current_Weapon.activate_anim)
 	
 func exit(_next_weapon: String):
 	#in order to change weapons first call exit
-	if _next_weapon != Current_Weapon.Weapon_Name:
-		if Animation_Player.get_current_animation() != Current_Weapon.Deactivate_Anim:
-			Animation_Player.play(Current_Weapon.Deactivate_Anim)
+	if _next_weapon != Current_Weapon.weapon_name:
+		if Animation_Player.get_current_animation() != Current_Weapon.deactivate_anim:
+			Animation_Player.play(Current_Weapon.deactivate_anim)
 			Next_Weapon = _next_weapon
-func Change_weapon():
-	pass
+func Change_Weapon(weapon_name: String):
+	Current_Weapon = Weapon_List[weapon_name]
+	Next_Weapon = ""
+	enter()
 	
+
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == Current_Weapon.deactivate_anim:
+		Change_Weapon(Next_Weapon)
 

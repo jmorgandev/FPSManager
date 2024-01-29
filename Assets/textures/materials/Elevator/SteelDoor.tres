@@ -9,5 +9,6 @@ cull_mode = 2
 albedo_texture = ExtResource("1_aascr")
 metallic = 0.631818
 normal_enabled = true
+normal_scale = 0.32
 normal_texture = ExtResource("2_qkqcy")
-texture_filter = 4
+texture_filter = 2
