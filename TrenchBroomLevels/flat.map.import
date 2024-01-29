@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://b7g7atc72wyoi"
+path="res://.godot/imported/flat.map-411901fe2214fdb44f8d3e24f34c7240.tres"
+
+[deps]
+
+source_file="res://TrenchBroomLevels/flat.map"
+dest_files=["res://.godot/imported/flat.map-411901fe2214fdb44f8d3e24f34c7240.tres"]
+
+[params]
+

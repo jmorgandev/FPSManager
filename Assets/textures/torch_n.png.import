@@ -2,24 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eebc0y50ael0"
-path="res://.godot/imported/redcarpetfilter_n.png-5c8da6e1bcbaffc58508fb7e149f0b56.ctex"
+uid="uid://dk3t1ilhrvxqx"
+path="res://.godot/imported/torch_n.png-f4dbee8db41996f0c685e4821b10ca1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/redcarpetfilter_n.png"
-dest_files=["res://.godot/imported/redcarpetfilter_n.png-5c8da6e1bcbaffc58508fb7e149f0b56.ctex"]
+source_file="res://Assets/textures/torch_n.png"
+dest_files=["res://.godot/imported/torch_n.png-f4dbee8db41996f0c685e4821b10ca1c.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1

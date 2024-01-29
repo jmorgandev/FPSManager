@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwp1e23k2tjg"
-path="res://.godot/imported/redcarpetnofilter_s.png-66678176b1dbccbc967ec5abfba3fe7d.ctex"
+path="res://.godot/imported/redcarpetnofilter_s.png-8610516916b495fdb39c4830fc5f64a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Texture/redcarpetnofilter_s.png"
-dest_files=["res://.godot/imported/redcarpetnofilter_s.png-66678176b1dbccbc967ec5abfba3fe7d.ctex"]
+source_file="res://Assets/textures/redcarpetnofilter_s.png"
+dest_files=["res://.godot/imported/redcarpetnofilter_s.png-8610516916b495fdb39c4830fc5f64a8.ctex"]
 
 [params]
 
