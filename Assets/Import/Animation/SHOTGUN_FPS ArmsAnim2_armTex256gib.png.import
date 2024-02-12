@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcuk1ug312f3y"
-path.s3tc="res://.godot/imported/smoothstone_s.png-492f2543ed4b23aff2536dfc9eea7e2b.s3tc.ctex"
+uid="uid://buhqee3lndmcu"
+path.s3tc="res://.godot/imported/SHOTGUN_FPS ArmsAnim2_armTex256gib.png-55a826dec14d63dc9b0229b810880e9c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://Assets/textures/smoothstone_s.png"
-dest_files=["res://.godot/imported/smoothstone_s.png-492f2543ed4b23aff2536dfc9eea7e2b.s3tc.ctex"]
+source_file="res://Assets/Import/Animation/SHOTGUN_FPS ArmsAnim2_armTex256gib.png"
+dest_files=["res://.godot/imported/SHOTGUN_FPS ArmsAnim2_armTex256gib.png-55a826dec14d63dc9b0229b810880e9c.s3tc.ctex"]
 
 [params]
 
@@ -20,7 +21,7 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
