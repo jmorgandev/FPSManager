@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8nl1kdux6syh"
-path="res://.godot/imported/smoothstone_o.png-5ba0f3a933be8b6f042374d188b9de16.ctex"
+path="res://.godot/imported/smoothstone_o.png-5d4b97ea7c492e83ba2d1756694825e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Texture/smoothstone_o.png"
-dest_files=["res://.godot/imported/smoothstone_o.png-5ba0f3a933be8b6f042374d188b9de16.ctex"]
+source_file="res://Assets/textures/smoothstone_o.png"
+dest_files=["res://.godot/imported/smoothstone_o.png-5d4b97ea7c492e83ba2d1756694825e2.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcuk1ug312f3y"
-path.s3tc="res://.godot/imported/smoothstone_s.png-407e8ad14563ad8f698f2b2eb982cacf.s3tc.ctex"
+path.s3tc="res://.godot/imported/smoothstone_s.png-492f2543ed4b23aff2536dfc9eea7e2b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Texture/smoothstone_s.png"
-dest_files=["res://.godot/imported/smoothstone_s.png-407e8ad14563ad8f698f2b2eb982cacf.s3tc.ctex"]
+source_file="res://Assets/textures/smoothstone_s.png"
+dest_files=["res://.godot/imported/smoothstone_s.png-492f2543ed4b23aff2536dfc9eea7e2b.s3tc.ctex"]
 
 [params]
 
