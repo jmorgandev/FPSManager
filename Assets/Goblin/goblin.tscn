@@ -1,17 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://ch1vogprkrdna"]
+[gd_scene load_steps=17 format=3 uid="uid://ch1vogprkrdna"]
 
 [ext_resource type="Script" path="res://Assets/Goblin/goblin.gd" id="1_spmty"]
 [ext_resource type="Resource" uid="uid://cgip4g4hnq85c" path="res://Assets/Goblin/Interface/Inventory/test_inv.tres" id="2_002iq"]
 [ext_resource type="ArrayMesh" uid="uid://bvwne0b0k0mge" path="res://Assets/Goblin/PlayerModel/JacketModel/JacketMesh.res" id="2_fbxd3"]
 [ext_resource type="Script" path="res://Assets/Goblin/Weapons_Manager.gd" id="3_kfwy5"]
-[ext_resource type="Resource" uid="uid://cejytm1acesp4" path="res://Assets/Goblin/Weapon_Resources/p90.tres" id="4_7pve1"]
+[ext_resource type="Resource" uid="uid://dvpffjj67dd5q" path="res://Assets/Goblin/Weapon_Resources/P90.tres" id="4_akpp6"]
 [ext_resource type="Texture2D" uid="uid://bi32kgk2davm6" path="res://Assets/Models/Weapons/p90/textures/p90.png" id="4_dg540"]
 [ext_resource type="AnimationLibrary" uid="uid://b2d87qlioho6h" path="res://Assets/Animation/p90/Library/p90.res" id="5_ld8c1"]
 [ext_resource type="PackedScene" uid="uid://drlrrvfu1fjhj" path="res://Assets/Goblin/Interaction/GoblinInteractor.tscn" id="6_wcmc2"]
+[ext_resource type="AnimationLibrary" uid="uid://biruiw2cum3p1" path="res://Assets/Animation/p90/Library/Importlob/import.res" id="7_4doof"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yjh7q"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_smygl"]
 radius = 0.3
-height = 1.85
+height = 1.82
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_80kjg"]
 radius = 0.3
@@ -187,7 +188,7 @@ inventory_data = ExtResource("2_002iq")
 
 [node name="default_collision_shape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.992, 0)
-shape = SubResource("CapsuleShape3D_yjh7q")
+shape = SubResource("CapsuleShape3D_smygl")
 
 [node name="crouching_collision_shape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00480878, 0.41631, 0.000813544)
@@ -211,7 +212,7 @@ fov = 90.0
 [node name="Weapons_Manager" type="Node3D" parent="neck/head/eyes/FP_Camera"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.277359)
 script = ExtResource("3_kfwy5")
-_weapon_resources = Array[Resource("res://Assets/Goblin/weapon_resource.gd")]([ExtResource("4_7pve1")])
+_weapon_resources = Array[Resource("res://Assets/Goblin/Weapon_resource.gd")]([ExtResource("4_akpp6")])
 Start_Weapons = Array[String](["P90"])
 
 [node name="armsRig" type="Node3D" parent="neck/head/eyes/FP_Camera/Weapons_Manager"]
@@ -230,21 +231,21 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.0484122, 0.998819, -0.00420871, -0.00974867, 0.004686, 0.999941, 0.99878, -0.0483683, 0.00996399, 2.87242, -0.300626, 0.00571288)
 bones/1/enabled = true
 bones/1/position = Vector3(2.87748, -0.300626, -0.946245)
-bones/1/rotation = Quaternion(-0.267749, -0.341954, -0.880935, -0.187969)
+bones/1/rotation = Quaternion(-0.136224, -0.0392136, -0.981279, 0.130371)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "armLower.L"
 bones/2/parent = 1
 bones/2/rest = Transform3D(0.969429, 0.244248, 0.0234475, -0.243381, 0.969312, -0.0346497, -0.0311911, 0.0278838, 0.999124, -9.73232e-08, 6.81273, 4.88944e-09)
 bones/2/enabled = true
 bones/2/position = Vector3(-9.73232e-08, 6.81273, 4.88944e-09)
-bones/2/rotation = Quaternion(0.0548373, 0.0125183, -0.427615, 0.902209)
+bones/2/rotation = Quaternion(0.0858043, 0.0102418, -0.669092, 0.738139)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "handPalm.L"
 bones/3/parent = 2
 bones/3/rest = Transform3D(0.956759, -0.283277, -0.0660786, 0.288199, 0.953932, 0.0833918, 0.0394115, -0.0988297, 0.994324, 3.85669e-07, 6.10782, 4.42378e-09)
 bones/3/enabled = true
 bones/3/position = Vector3(3.85669e-07, 6.10782, 4.42378e-09)
-bones/3/rotation = Quaternion(-0.0322544, -0.589356, -0.00970055, 0.807171)
+bones/3/rotation = Quaternion(0.451352, -0.645887, 0.229055, 0.571528)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "indexFin1.L"
 bones/4/parent = 3
@@ -356,42 +357,42 @@ bones/19/parent = 0
 bones/19/rest = Transform3D(0.0591131, -0.998143, 0.0147179, 0.00917795, 0.0152865, 0.999841, -0.998209, -0.0589687, 0.0100645, -2.87535, -0.270115, -0.0247974)
 bones/19/enabled = true
 bones/19/position = Vector3(-2.8703, -0.270115, -0.976755)
-bones/19/rotation = Quaternion(-0.616814, 0.144141, 0.772058, 0.0518759)
+bones/19/rotation = Quaternion(-0.566739, -0.117743, 0.770115, 0.268078)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/name = "armLower.R"
 bones/20/parent = 19
 bones/20/rest = Transform3D(0.969429, -0.244248, -0.0234476, 0.243381, 0.969312, -0.0346498, 0.0311911, 0.0278838, 0.999125, -7.17118e-08, 6.81273, 4.88944e-09)
 bones/20/enabled = true
 bones/20/position = Vector3(-7.17118e-08, 6.81273, 4.88944e-09)
-bones/20/rotation = Quaternion(0.102536, -0.00821005, 0.799564, 0.591706)
+bones/20/rotation = Quaternion(0.102675, -0.00818943, 0.800647, 0.590217)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/name = "handPalm.R"
 bones/21/parent = 20
 bones/21/rest = Transform3D(0.955969, 0.285836, 0.066494, -0.290847, 0.953006, 0.0847835, -0.039135, -0.10039, 0.994178, -4.47209e-07, 6.10782, 2.8871e-08)
 bones/21/enabled = true
 bones/21/position = Vector3(-4.47209e-07, 6.10782, 2.8871e-08)
-bones/21/rotation = Quaternion(0.189252, 0.242738, -0.280932, 0.909032)
+bones/21/rotation = Quaternion(-0.17926, 0.393303, -0.382406, 0.816667)
 bones/21/scale = Vector3(1, 1, 1)
 bones/22/name = "indexFin1.R"
 bones/22/parent = 21
 bones/22/rest = Transform3D(0.993461, -0.113821, -0.00896555, 0.11373, 0.99346, -0.0100658, 0.0100526, 0.00898034, 0.999909, -0.598882, 1.59682, -0.0133127)
 bones/22/enabled = true
 bones/22/position = Vector3(-0.598882, 1.59682, -0.0133127)
-bones/22/rotation = Quaternion(0.0047694, -0.00476239, 0.0569818, 0.998352)
+bones/22/rotation = Quaternion(0.00428934, -0.00420066, 0.0250561, 0.999668)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/name = "indexFin2.R"
 bones/23/parent = 22
 bones/23/rest = Transform3D(0.998875, 0.0468079, 0.00761309, -0.0463669, 0.997654, -0.0503557, -0.00995228, 0.049946, 0.998702, 8.09086e-08, 0.808096, -2.8871e-08)
 bones/23/enabled = true
 bones/23/position = Vector3(8.09086e-08, 0.808096, -2.8871e-08)
-bones/23/rotation = Quaternion(0.0250904, 0.00439396, -0.0233076, 0.999404)
+bones/23/rotation = Quaternion(-0.00630046, 0.00472283, -0.0182671, 0.999802)
 bones/23/scale = Vector3(1, 1, 1)
 bones/24/name = "indexFin3.R"
 bones/24/parent = 23
 bones/24/rest = Transform3D(0.999927, 0.0119045, 0.00203705, -0.0119618, 0.99945, 0.0309383, -0.00166762, -0.0309604, 0.999519, 1.44239e-07, 0.546718, 2.04891e-08)
 bones/24/enabled = true
 bones/24/position = Vector3(1.44239e-07, 0.546718, 2.04891e-08)
-bones/24/rotation = Quaternion(-0.0154768, 0.000926295, -0.00596741, 0.999862)
+bones/24/rotation = Quaternion(-0.000138713, 0.000849179, 0.00419282, 0.999991)
 bones/24/scale = Vector3(1, 1, 1)
 bones/25/name = "middleFin1.R"
 bones/25/parent = 21
@@ -499,8 +500,8 @@ bones/0/name = "p_root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(-1, 0, 0, 0, 0, 1, 0, 1, 0, 0, -0.0035403, -0.260037)
 bones/0/enabled = true
-bones/0/position = Vector3(-0.344509, -0.239107, -0.58791)
-bones/0/rotation = Quaternion(0, 0.707107, 0.707107, 0)
+bones/0/position = Vector3(-0.50744, -0.476098, -0.768615)
+bones/0/rotation = Quaternion(0.0558427, 0.24765, 0.89633, -0.363517)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "p_mag"
 bones/1/parent = 0
@@ -533,6 +534,7 @@ skin = SubResource("Skin_6tj87")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="neck/head/eyes/FP_Camera/Weapons_Manager"]
 unique_name_in_owner = true
 libraries = {
+"import": ExtResource("7_4doof"),
 "p90": ExtResource("5_ld8c1")
 }
 
@@ -542,5 +544,7 @@ goblin = NodePath("../../../../..")
 
 [node name="CollisionShape3D" parent="neck/head/eyes/FP_Camera/GoblinInteractor" index="0"]
 shape = SubResource("BoxShape3D_4fnju")
+
+[connection signal="animation_finished" from="neck/head/eyes/FP_Camera/Weapons_Manager/AnimationPlayer" to="neck/head/eyes/FP_Camera/Weapons_Manager" method="_on_animation_player_animation_finished"]
 
 [editable path="neck/head/eyes/FP_Camera/GoblinInteractor"]

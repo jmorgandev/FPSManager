@@ -1,15 +1,15 @@
-[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=2 format=3 uid="uid://cejytm1acesp4"]
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=2 format=3 uid="uid://dvpffjj67dd5q"]
 
-[ext_resource type="Script" path="res://Assets/Goblin/weapon_resource.gd" id="1_432jc"]
+[ext_resource type="Script" path="res://Assets/Goblin/Weapon_resource.gd" id="1_3vfhq"]
 
 [resource]
-script = ExtResource("1_432jc")
-Weapon_name = "P90"
+script = ExtResource("1_3vfhq")
+weapon_name = "P90"
 activate_anim = "p90/activate"
 shoot_anim = "p90/fire"
 reload_anim = "p90/reload"
 deactivate_anim = "p90/deactivate"
-empty_anim = "p90/ooa"
+empty_anim = "p90/fire"
 current_ammo = 50
 reserve_ammo = 50
 equipped_magazine = 50
