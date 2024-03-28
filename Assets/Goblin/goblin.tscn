@@ -1,10 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://ch1vogprkrdna"]
+[gd_scene load_steps=15 format=3 uid="uid://ch1vogprkrdna"]
 
 [ext_resource type="Script" path="res://Assets/Goblin/goblin.gd" id="1_spmty"]
 [ext_resource type="Resource" uid="uid://cgip4g4hnq85c" path="res://Assets/Goblin/Interface/Inventory/test_inv.tres" id="2_002iq"]
 [ext_resource type="ArrayMesh" uid="uid://bvwne0b0k0mge" path="res://Assets/Goblin/PlayerModel/JacketModel/JacketMesh.res" id="2_fbxd3"]
-[ext_resource type="Script" path="res://Assets/Goblin/Weapons_Manager.gd" id="3_kfwy5"]
-[ext_resource type="Resource" uid="uid://dvpffjj67dd5q" path="res://Assets/Goblin/Weapon_Resources/P90.tres" id="4_akpp6"]
 [ext_resource type="Texture2D" uid="uid://bi32kgk2davm6" path="res://Assets/Models/Weapons/p90/textures/p90.png" id="4_dg540"]
 [ext_resource type="AnimationLibrary" uid="uid://b2d87qlioho6h" path="res://Assets/Animation/p90/Library/p90.res" id="5_ld8c1"]
 [ext_resource type="PackedScene" uid="uid://drlrrvfu1fjhj" path="res://Assets/Goblin/Interaction/GoblinInteractor.tscn" id="6_wcmc2"]
@@ -211,9 +209,6 @@ fov = 90.0
 
 [node name="Weapons_Manager" type="Node3D" parent="neck/head/eyes/FP_Camera"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.277359)
-script = ExtResource("3_kfwy5")
-_weapon_resources = Array[Resource("res://Assets/Goblin/Weapon_resource.gd")]([ExtResource("4_akpp6")])
-Start_Weapons = Array[String](["P90"])
 
 [node name="armsRig" type="Node3D" parent="neck/head/eyes/FP_Camera/Weapons_Manager"]
 transform = Transform3D(0.0957578, 0, 0, 0, 0.0957578, 0, 0, 0, 0.0957578, 0, 0, 0)

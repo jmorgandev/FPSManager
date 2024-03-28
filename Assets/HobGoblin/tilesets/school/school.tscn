@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ntqv3w4m7w7n"]
+
+[ext_resource type="PackedScene" uid="uid://qita1x6enio1" path="res://Assets/HobGoblin/tilesets/school/school.glb" id="1_2h6sa"]
+
+[node name="school" instance=ExtResource("1_2h6sa")]

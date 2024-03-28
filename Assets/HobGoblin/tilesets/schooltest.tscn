@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6ytvyhyxr313"]
+
+[ext_resource type="MeshLibrary" uid="uid://bbu2yijr4o6va" path="res://Assets/HobGoblin/tilesets/school/school.tres" id="1_uok7j"]
+[ext_resource type="PackedScene" uid="uid://ch1vogprkrdna" path="res://Assets/Goblin/goblin.tscn" id="2_foebn"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_uok7j")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(1, 65535, 2, 4, 10, 1048586, 12, 7, 1441800, 15, 65535, 655364, 1, 65527, 10, 12, 65524, 1441802)
+}
+
+[node name="Goblin" parent="." instance=ExtResource("2_foebn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.96739, 0.00334311, -8.88918)

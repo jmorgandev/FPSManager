@@ -1,9 +1,9 @@
 [gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://8gbnoa6nikgx"]
 
-[ext_resource type="Texture2D" uid="uid://bbmd8rm2o44f1" path="res://Assets/Texture/upscaled/bricklane.png" id="1_ss41x"]
-[ext_resource type="Texture2D" uid="uid://c8wshce855a66" path="res://Assets/Texture/bricklane_o.png" id="2_4ro0i"]
-[ext_resource type="Texture2D" uid="uid://bfx2c0rekmtcb" path="res://Assets/Texture/bricklane_n.png" id="3_ewjvn"]
-[ext_resource type="Texture2D" uid="uid://cb3appd7dpif7" path="res://Assets/Texture/roughness/bricklane_rough.png" id="3_kokrq"]
+[ext_resource type="Texture2D" uid="uid://bbmd8rm2o44f1" path="res://Assets/textures/upscaled/bricklane.png" id="1_ss41x"]
+[ext_resource type="Texture2D" uid="uid://c8wshce855a66" path="res://Assets/textures/bricklane_o.png" id="2_4ro0i"]
+[ext_resource type="Texture2D" uid="uid://bfx2c0rekmtcb" path="res://Assets/textures/bricklane_n.png" id="3_ewjvn"]
+[ext_resource type="Texture2D" uid="uid://cb3appd7dpif7" path="res://Assets/textures/roughness/bricklane_rough.png" id="3_kokrq"]
 
 [resource]
 resource_name = "PortG"
