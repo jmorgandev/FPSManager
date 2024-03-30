@@ -1,8 +1,0 @@
-[gd_resource type="ORMMaterial3D" load_steps=2 format=3 uid="uid://ciyndfmm12nfi"]
-
-[ext_resource type="Texture2D" uid="uid://dii7ib64sn1uy" path="res://Assets/textures/upscaled/wood512.png" id="1_1tu6k"]
-
-[resource]
-albedo_texture = ExtResource("1_1tu6k")
-uv1_scale = Vector3(5, 5, 5)
-texture_filter = 0
