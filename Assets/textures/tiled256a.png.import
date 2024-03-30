@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Texture/tiled256a.png"
+source_file="res://Assets/textures/tiled256a.png"
 dest_files=["res://.godot/imported/tiled256a.png-630d99c309e54c3a31b3d024c7a605b3.ctex"]
 
 [params]

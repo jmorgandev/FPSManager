@@ -33,7 +33,7 @@ _subresources={
 "materials": {
 "Material": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Texture/Materials/Material.tres"
+"use_external/path": "res://Assets/textures/Materials/Material.tres"
 }
 },
 "meshes": {

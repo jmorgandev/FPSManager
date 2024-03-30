@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Texture/Lamp.png"
+source_file="res://Assets/textures/Lamp.png"
 dest_files=["res://.godot/imported/Lamp.png-fb76c97fe5c7e16236e7d76ef8b71333.ctex"]
 
 [params]

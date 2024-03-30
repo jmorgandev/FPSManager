@@ -33,15 +33,15 @@ _subresources={
 "materials": {
 "Case": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Texture/Case.tres"
+"use_external/path": "res://Assets/textures/Case.tres"
 },
 "Projector": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Texture/Projector.tres"
+"use_external/path": "res://Assets/textures/Projector.tres"
 },
 "Screen": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Texture/Screen.tres"
+"use_external/path": "res://Assets/textures/Screen.tres"
 }
 },
 "meshes": {

@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Texture/glossbrickseamless_n512.png"
+source_file="res://Assets/textures/glossbrickseamless_n512.png"
 dest_files=["res://.godot/imported/glossbrickseamless_n512.png-7267bcbe6ed160a76ba7fcf5f65d6d67.ctex"]
 
 [params]

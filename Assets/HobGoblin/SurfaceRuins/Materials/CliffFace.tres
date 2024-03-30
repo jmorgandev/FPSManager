@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dtidl6k0w6ht5"]
 
-[ext_resource type="Texture2D" uid="uid://35bmj3sboxgh" path="res://Assets/Texture/upscaled/cliffface512.png" id="1_aa4em"]
+[ext_resource type="Texture2D" uid="uid://35bmj3sboxgh" path="res://Assets/textures/upscaled/cliffface512.png" id="1_aa4em"]
 
 [resource]
 resource_name = "CliffFace"

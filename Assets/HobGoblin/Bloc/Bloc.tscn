@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://bvtf45ne3218p" path="res://Assets/HobGoblin/Door.tscn" id="22_nrkej"]
 [ext_resource type="PackedScene" uid="uid://bai6m4udb63tu" path="res://Assets/Goblin/Interface/Inventory/slot.tscn" id="23_s1hyd"]
 [ext_resource type="ArrayMesh" uid="uid://bt7fkklugry0k" path="res://Assets/Models/Level/tv_Cube.res" id="26_6j6tk"]
-[ext_resource type="Material" uid="uid://cvw6ruibc6edv" path="res://Assets/textures/materials/view.tres" id="29_2kffs"]
 [ext_resource type="Texture2D" uid="uid://dbl8akt5mnxic" path="res://Assets/textures/upscaled/cliffface.png" id="30_wu82l"]
 
 [sub_resource type="Resource" id="Resource_ptuvw"]
@@ -766,11 +765,6 @@ block_data = SubResource("Resource_em3r0")
 script = ExtResource("3_o1cip")
 materials = Array[Material]([ExtResource("12_n0rnn")])
 block_data = SubResource("Resource_88j8b")
-
-[node name="Block_18" type="Node" parent="CyclopsBlocks"]
-script = ExtResource("3_o1cip")
-materials = Array[Material]([ExtResource("29_2kffs")])
-block_data = SubResource("Resource_52tfn")
 
 [node name="Block_27" type="Node" parent="CyclopsBlocks"]
 script = ExtResource("3_o1cip")

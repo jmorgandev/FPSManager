@@ -11,7 +11,7 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Texture/Shade.png"
+source_file="res://Assets/textures/Shade.png"
 dest_files=["res://.godot/imported/Shade.png-530b04d92468d6c6c1acf20726e57aa5.s3tc.ctex"]
 
 [params]

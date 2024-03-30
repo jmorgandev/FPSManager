@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ceyrlk4bfadhq"]
 
-[ext_resource type="Texture2D" uid="uid://dc8fjpyio4bee" path="res://Assets/Texture/Materials/Elevator/extele2.png" id="1_4kk82"]
-[ext_resource type="Texture2D" uid="uid://bn68w8xhqnxwn" path="res://Assets/Texture/Materials/Elevator/extele2_n.png" id="2_7l23a"]
+[ext_resource type="Texture2D" uid="uid://dc8fjpyio4bee" path="res://Assets/textures/Materials/Elevator/extele2.png" id="1_4kk82"]
+[ext_resource type="Texture2D" uid="uid://bn68w8xhqnxwn" path="res://Assets/textures/Materials/Elevator/extele2_n.png" id="2_7l23a"]
 
 [resource]
 albedo_texture = ExtResource("1_4kk82")

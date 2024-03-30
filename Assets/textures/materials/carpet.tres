@@ -1,6 +1,6 @@
 [gd_resource type="ORMMaterial3D" load_steps=2 format=3 uid="uid://dvoebbij1se0s"]
 
-[ext_resource type="Texture2D" uid="uid://ciks8y4xjvpar" path="res://Assets/Texture/upscaled/carpet256.png" id="1_gwejs"]
+[ext_resource type="Texture2D" uid="uid://ciks8y4xjvpar" path="res://Assets/textures/upscaled/carpet256.png" id="1_gwejs"]
 
 [resource]
 vertex_color_use_as_albedo = true

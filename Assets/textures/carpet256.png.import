@@ -11,7 +11,7 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Texture/carpet256.png"
+source_file="res://Assets/textures/carpet256.png"
 dest_files=["res://.godot/imported/carpet256.png-4cdc9d934150a1fca672e275157f96b3.s3tc.ctex"]
 
 [params]

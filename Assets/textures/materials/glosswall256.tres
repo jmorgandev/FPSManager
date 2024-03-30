@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cuwi8rt2r23k6"]
 
-[ext_resource type="Texture2D" uid="uid://dis4bmgwpbjnc" path="res://Assets/Texture/diffuse/glossbrickseamless256.png" id="1_dp7ah"]
-[ext_resource type="Texture2D" uid="uid://d3dykyvp5h56p" path="res://Assets/Texture/normals/glossbrickseamless_n256.png" id="2_7m8te"]
+[ext_resource type="Texture2D" uid="uid://dis4bmgwpbjnc" path="res://Assets/textures/diffuse/glossbrickseamless256.png" id="1_dp7ah"]
+[ext_resource type="Texture2D" uid="uid://d3dykyvp5h56p" path="res://Assets/textures/normals/glossbrickseamless_n256.png" id="2_7m8te"]
 
 [resource]
 albedo_texture = ExtResource("1_dp7ah")

@@ -7231,35 +7231,35 @@ _subresources={
 "materials": {
 "Chain": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Texture/Materials/Elevator/Chain.tres"
+"use_external/path": "res://Assets/textures/Materials/Elevator/Chain.tres"
 },
 "Elevator Ext": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Texture/Materials/Elevator/Elevator Ext.tres"
+"use_external/path": "res://Assets/textures/Materials/Elevator/Elevator Ext.tres"
 },
 "Int Wall": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Texture/Materials/Elevator/Int Wall.tres"
+"use_external/path": "res://Assets/textures/Materials/Elevator/Int Wall.tres"
 },
 "Int floor": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Texture/Materials/Elevator/Int floor.tres"
+"use_external/path": "res://Assets/textures/Materials/Elevator/Int floor.tres"
 },
 "Pulley": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Texture/Materials/Elevator/Pulley.tres"
+"use_external/path": "res://Assets/textures/Materials/Elevator/Pulley.tres"
 },
 "Rust": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Texture/Materials/Elevator/Rust.tres"
+"use_external/path": "res://Assets/textures/Materials/Elevator/Rust.tres"
 },
 "Steel": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Texture/Materials/Elevator/Steel.tres"
+"use_external/path": "res://Assets/textures/Materials/Elevator/Steel.tres"
 },
 "SteelDoor": {
 "use_external/enabled": true,
-"use_external/path": "res://Assets/Texture/Materials/Elevator/SteelDoor.tres"
+"use_external/path": "res://Assets/textures/Materials/Elevator/SteelDoor.tres"
 }
 },
 "meshes": {
